@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEEE Eskişehir Teknik Üniversitesi Öğrenci Kolu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Bazı stilleri sıfırla */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff; /* Arka plan rengi güncellendi */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            
+        }
+
+        h1 {
+            text-align: center;
+            color: #00539f; /* IEEE Mavisi */
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .form-element {
+            margin-bottom: 20px;
+        }
+
+        .form-element label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            display: block;
+            font-size: 18px;
+        }
+
+        .form-element input[type="text"],
+        .form-element input[type="email"],
+        .form-element select,
+        .form-element input[type="tel"],
+        .form-element textarea {
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            width: 100%;
+            transition: border-color 0.3s;
+        }
+
+        .form-element input[type="email"]::before,
+        .form-element input[type="tel"]::before {
+            content: "\f0e0";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 24px;
+        }
+
+        .form-element textarea {
+            height: 150px;
+        }
+
+        .form-element input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .form-element .required-indicator {
+            color: black;
+            margin-left: 5px;
+        }
+
+        .form-element select {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    width: 100%;
+    height: 45px; /* Set the desired height for the select element */
+    transition: border-color 0.3s;
+}
+
+        .submit-button {
+            background-color: #00539f;
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            text-align: center;
+        }
+
+        .submit-button:hover {
+            background-color: #003e76;
+        }
+
+        /* Hata mesajı stilleri */
+        .error-message {
+            color: red;
+            font-size: 14px; /* Hata mesajı yazı boyutu güncellendi */
+        }
+
+        /* Ek açıklama stilleri */
+        .additional-info {
+            font-size: 14px;
+            margin-top: 5px;
+            color: #555;
+        }
+
+        /* Duyarlı tasarım için ek stil */
+        @media screen and (max-width: 768px) {
+            .form-element label {
+                font-size: 16px;
+            }
+
+            .form-element input[type="text"],
+            .form-element input[type="email"],
+            .form-element select,
+            .form-element input[type="tel"],
+            .form-element textarea {
+                padding: 12px;
+                font-size: 16px;
+            }
+
+            .submit-button {
+                padding: 15px 20px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- IEEE logosu veya kısaltması buraya eklenmeli -->
+        <h1> IEEE Eskişehir Teknik Üniversitesi Öğrenci Kolu Üyelik Formu</h1>
+        <form id="membership-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfQzvIIw6CFWbH7Su1JoCc4c8OiFDept_GYxOOC4itMJrvAkg/formResponse" method="POST">
+
+            <div class="form-element">
+                <label for="name" class="required-indicator">Ad Soyad</label>
+                <input type="text" id="name" name="entry.1636514721" placeholder="Adınız Soyadınız" required>
+                <span class="error-message" id="name-error"></span>
+            </div>
+
+            <!-- Mail Adresiniz -->
+            <div class="form-element">
+                <label for="non-edu-email" class="required-indicator" >Mail Adresiniz</label>
+                <input type="email" id="non-edu-email" name="entry.1402825757" placeholder="Mail Adresiniz">
+                <p class="additional-info">Edu Mail Adresiniz dışındaki kişisel e-posta adresinizi giriniz.</p>
+            </div>
+
+            <!-- Bölümünüz -->
+            <div class="form-element">
+    <label for="department" class="required-indicator">Bölümünüz</label>
+    <select id="department" name="entry.1104258027" required>
+        <option value="" disabled selected>Bölümünüzü Seçin</option>
+        <option value="Bilgisayar Mühendisliği">Bilgisayar Mühendisliği</option>
+        <option value="Çevre Mühendisliği">Çevre Mühendisliği</option>
+        <option value="Elektrik Elektronik Mühendisliği">Elektrik Elektronik Mühendisliği</option>
+        <option value="Endüstri Mühendisliği">Endüstri Mühendisliği</option>
+        <option value="İnşaat Mühendisliği">İnşaat Mühendisliği</option>
+        <option value="Kimya Mühendisliği">Kimya Mühendisliği</option>
+        <option value="Makine Mühendisliği">Makine Mühendisliği</option>
+        <option value="Malzeme Bilimi ve Mühendisliği">Malzeme Bilimi ve Mühendisliği</option>
+        <option value="Fizik">Fizik</option>
+        <option value="Kimya">Kimya</option>
+        <option value="Biyoloji">Biyoloji</option>
+        <option value="İstatistik">İstatistik</option>
+        <option value="Matematik">Matematik</option>
+        <option value="Uçak Gövde Motor Bakım">Uçak Gövde Motor Bakım</option>
+        <option value="Pilotaj">Pilotaj</option>
+        <option value="Havacılık Elektrik Elektroniği">Havacılık Elektrik Elektroniği</option>
+        <option value="Mimarlık">Mimarlık</option>
+        <option value="İç Mimarlık">İç Mimarlık</option>
+        <option value="Endüstriyel Tasarım">Endüstriyel Tasarım</option>
+        <option value="Moda ve Tekstil Tasarımı">Moda ve Tekstil Tasarımı</option>
+    </select>
+    <span class="error-message" id="department-error"></span>
+</div>
+
+<div class="form-element">
+    <label for="class" class="required-indicator">Sınıfınızı Seçin</label>
+    <select id="class" name="entry.1249720582" required>
+        <option value="" disabled selected>Lütfen sınıfınızı seçin</option>
+        <option value="Hazırlık">Hazırlık</option>
+        <option value="1. Sınıf">1. Sınıf</option>
+        <option value="2. Sınıf">2. Sınıf</option>
+        <option value="3. Sınıf">3. Sınıf</option>
+        <option value="4. Sınıf">4. Sınıf</option>
+            </select>
+    <span class="error-message" id="class-error"></span>
+</div>
+
+
+            <!-- Gönder Butonu -->
+            <div class="form-element">
+                <input type="submit" class="submit-button" value="Üyelik Formunu Gönder">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // İstemci tarafı form doğrulama
+        const form = document.getElementById('membership-form');
+        form.addEventListener('submit', function (e) {
+            let isValid = true;
+
+            // Hata mesajlarını sıfırla
+            const errorElements = form.querySelectorAll('.error-message');
+            errorElements.forEach((errorElement) => {
+                errorElement.textContent = '';
+            });
+
+            // Ad Soyadı doğrula
+            const fullName = form.querySelector('#name');
+            if (fullName.value.trim() === '') {
+                document.querySelector('#name-error').textContent = 'Lütfen adınızı ve soyadınızı girin.';
+                isValid = false;
+            }
+
+            // E-posta doğrula
+            const email = form.querySelector('#email');
+            if (email.value.trim() === '') {
+                document.querySelector('#email-error').textContent = 'Lütfen e-posta adresinizi girin.';
+                isValid = false;
+            } else if (!isValidEmail(email.value.trim())) {
+                document.querySelector('#email-error').textContent = 'Lütfen geçerli bir e-posta adresi girin.';
+                isValid = false;
+            }
+
+            // Bölümü doğrula
+            const department = form.querySelector('#department');
+            if (department.value === '') {
+                document.querySelector('#department-error').textContent = 'Lütfen bölümünüzü seçin.';
+                isValid = false;
+            }
+            // Sınıf doğrula
+          const selectedClass = form.querySelector('#class');
+          if (selectedClass.value === '') {
+              document.querySelector('#class-error').textContent = 'Lütfen sınıfınızı seçin.';
+              isValid = false;
+          }
+
+
+            // Soruları doğrula
+            // Diğer doğrulamaları buraya ekleyebilirsiniz.
+
+            if (!isValid) {
+                e.preventDefault(); // Doğrulama hataları varsa form gönderimini engelle
+            }
+        });
+
+        // E-posta doğrulama işlevi
+        function isValidEmail(email) {
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            return emailPattern.test(email);
+        }
+    </script>
+</body>
+</html>
